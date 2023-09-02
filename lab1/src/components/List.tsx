@@ -2,6 +2,8 @@
 import { ListGroup } from 'react-bootstrap'
 
 function List() {
+
+
   return (
     <div>
 
@@ -11,7 +13,6 @@ function List() {
         <ListGroup.Item>Sample3</ListGroup.Item>
         <ListGroup.Item>Sample4</ListGroup.Item>
         <ListGroup.Item>Sample5</ListGroup.Item>
-
         </ListGroup>
     </div>
   )

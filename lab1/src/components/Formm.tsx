@@ -7,7 +7,7 @@ function Formm() {
 
     const [message, setMessage] = useState('')
 
-    const [update, setUpdate] = useState(message)
+   
 
     const handleChange = (event)=>{
         setMessage(event.target.value)
@@ -15,8 +15,35 @@ function Formm() {
     }
 
     const handleClick = ()=>{
-        setUpdate(message)
-        console.log(message)
+        labFunction(message)
+    }
+
+    const labFunction = (word)=>{
+      let modifiedString = ''
+
+        for(let i=0;i<word.length;i++){
+        if(word[i] === "(" || word[i] === ")"){
+          modifiedString += ' ' + word[i] + ' ' 
+        }
+        else{
+            modifiedString += word[i]
+        }
+ 
+     
+        // console.log(indexPerenthesis)
+        }
+
+        console.log(modifiedString)
+        let splitted = modifiedString.split(" ")
+        console.log(splitted)
+        return splitted
+        // let wordSeparated = word.split(" ")
+        // let indexParenthesis = wordSeparated.indexOf("(")
+
+        // console.log(wordSeparated[indexParenthesis])
+        // console.log(wordSeparated)
+
+
     }
 
 
@@ -31,9 +58,8 @@ function Formm() {
             <Button variant='outline-secondary' onClick={handleClick}>Check it Out</Button>
             </InputGroup>
             </Form.Group>
-
-
         </Form>
+
         </div>
   )
 }

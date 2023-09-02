@@ -1,18 +1,17 @@
 
 import { ListGroup } from 'react-bootstrap'
 
-function List() {
+function List(props) {
 
+const {splittedData} = props
 
   return (
     <div>
 
         <ListGroup>
-        <ListGroup.Item>Sample1</ListGroup.Item>
-        <ListGroup.Item>Sample2</ListGroup.Item>
-        <ListGroup.Item>Sample3</ListGroup.Item>
-        <ListGroup.Item>Sample4</ListGroup.Item>
-        <ListGroup.Item>Sample5</ListGroup.Item>
+        {splittedData.map((listValue) =>{
+            return <ListGroup.Item key={listValue}>{listValue}</ListGroup.Item>
+        })}
         </ListGroup>
     </div>
   )

@@ -37,19 +37,19 @@ function Formm() {
         // console.log(indexPerenthesis)
         }
 
-        console.log(modifiedString)
+        // console.log(modifiedString)
         let splitted = modifiedString.split(" ")
-        console.log(splitted)
+        // console.log(splitted)
         return splitted
         // let wordSeparated = word.split(" ")
         // let indexParenthesis = wordSeparated.indexOf("(")
 
         // console.log(wordSeparated[indexParenthesis])
         // console.log(wordSeparated)
-
+        
     }
 
-   
+
   return (
     <div>
         <Form>
@@ -66,6 +66,7 @@ function Formm() {
         </div>
   )
   
+
 
 }
 

@@ -2,6 +2,7 @@
 import { Container } from 'react-bootstrap'
 import Formm from '../components/Formm'
 
+
 function MainPage() {
 
 
@@ -9,6 +10,7 @@ function MainPage() {
   return (
     <Container fluid >
         <Formm/>
+
     </Container>
   )
 }

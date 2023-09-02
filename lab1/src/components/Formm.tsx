@@ -2,17 +2,17 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { InputGroup } from 'react-bootstrap'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import List from './List'
 
 
 function Formm() {
 
     const [message, setMessage] = useState('')
-    const [splitted, setSplitted] = useState<string[]>([]);
+    const [splittedHEHE, setSplitted] = useState<string[]>([]);
    
 
-    const handleChange = (event)=>{
+    const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
         setMessage(event.target.value)
         
     }
@@ -22,7 +22,7 @@ function Formm() {
         setSplitted(modifiedString)
     }
 
-    const labFunction = (word)=>{
+    const labFunction = (word:string)=>{
       let modifiedString = ''
 
         for(let i=0;i<word.length;i++){
@@ -50,6 +50,8 @@ function Formm() {
     }
 
 
+
+
   return (
     <div>
         <Form>
@@ -62,7 +64,7 @@ function Formm() {
             </InputGroup>
             </Form.Group>
         </Form>
-        <List splittedData = {splitted}/>
+        <List splittedData = {splittedHEHE}/>
         </div>
   )
   

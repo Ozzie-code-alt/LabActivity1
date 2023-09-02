@@ -1,7 +1,7 @@
 
 import { ListGroup } from 'react-bootstrap'
 
-function List(props) {
+function List(props: {splittedData: string[]}) {
 
 const {splittedData} = props
 

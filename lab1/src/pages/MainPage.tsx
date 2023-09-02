@@ -10,7 +10,6 @@ function MainPage() {
   return (
     <Container fluid >
         <Formm/>
-
     </Container>
   )
 }

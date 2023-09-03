@@ -8,9 +8,17 @@ import List from './List'
 
 function Formm() {
 
+  interface myObject {
+    [key:string]: string
+  }
     const [message, setMessage] = useState('')
     const [splittedHEHE, setSplitted] = useState<string[]>([]);
-   
+    const objectAnswers: myObject ={
+      "int": "Keyword",
+      "let": "indentifier",
+      "=": "operator",
+      "100": "integer"
+    }
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
         setMessage(event.target.value)
@@ -22,9 +30,10 @@ function Formm() {
         setSplitted(modifiedString)
     }
 
+
     const labFunction = (word:string)=>{
       let modifiedString = ''
-
+      let valueAdded = ''
         for(let i=0;i<word.length;i++){
         if(word[i] === "(" || word[i] === ")"){
           modifiedString += ' ' + word[i] + ' ' 
@@ -39,6 +48,17 @@ function Formm() {
 
         // console.log(modifiedString)
         let splitted = modifiedString.split(" ")
+
+        splitted.forEach((value) =>{
+         if(objectAnswers.hasOwnProperty(value)){
+          console.log(value + " : " + objectAnswers[value])
+         }
+         else{
+          console.log(value)
+         }
+        })
+
+        console.log(valueAdded)
         // console.log(splitted)
         return splitted
         // let wordSeparated = word.split(" ")

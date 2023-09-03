@@ -11,7 +11,7 @@ useEffect(() => {
   if (text && text.textContent !== null) {
     text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
     anime.timeline({
-      loop: true
+      loop: false
     })
     
     .add({

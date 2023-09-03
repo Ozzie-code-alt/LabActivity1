@@ -8,10 +8,12 @@ function Background() {
 useEffect(() => {
   // Ensure the element with the class 'text' exists before accessing it
   const text = document.querySelector('.text');
+
   if (text && text.textContent !== null) {
     text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
     anime.timeline({
-      loop: true
+      loop: false
     })
     
     .add({
@@ -22,7 +24,6 @@ useEffect(() => {
       easing:'easeOutExpo',
       duration:1500,
       delay:anime.stagger(100),
-
     })
 
 

@@ -13,11 +13,15 @@ function Formm() {
   }
     const [message, setMessage] = useState('')
     const [splittedHEHE, setSplitted] = useState<string[]>([]);
+
+
     const objectAnswers: myObject ={
       "int": "Keyword",
       "let": "indentifier",
       "=": "operator",
-      "100": "integer"
+      "100": "integer",
+      '(' : 'OpenParenthesis',
+      ')': 'ClosedParenthesis'
     }
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
@@ -26,14 +30,16 @@ function Formm() {
     }
 
     const handleClick = ()=>{
-        const modifiedString = labFunction(message)
-        setSplitted(modifiedString)
+        const printAnswer = labFunction(message)
+        setSplitted(printAnswer)
     }
 
 
     const labFunction = (word:string)=>{
+
       let modifiedString = ''
       let valueAdded = ''
+
         for(let i=0;i<word.length;i++){
         if(word[i] === "(" || word[i] === ")"){
           modifiedString += ' ' + word[i] + ' ' 
@@ -41,26 +47,30 @@ function Formm() {
         else{
             modifiedString += word[i]
         }
- 
-     
         // console.log(indexPerenthesis)
         }
 
         // console.log(modifiedString)
         let splitted = modifiedString.split(" ")
+        console.log(splitted)
 
         splitted.forEach((value) =>{
          if(objectAnswers.hasOwnProperty(value)){
-          console.log(value + " : " + objectAnswers[value])
+          valueAdded += ' ' + value + ":" + objectAnswers[value] + ' '
+         }
+         else if(value === "(" || value === ")" || value == "="){
+          valueAdded+= ' ' + value +' '
          }
          else{
-          console.log(value)
+          valueAdded += value
          }
         })
-
         console.log(valueAdded)
+        let heheWorks = valueAdded.split(" ")
+        
+        console.log(heheWorks)
         // console.log(splitted)
-        return splitted
+        return heheWorks
         // let wordSeparated = word.split(" ")
         // let indexParenthesis = wordSeparated.indexOf("(")
 

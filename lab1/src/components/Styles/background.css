@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    overflow: hidden;
+
+}
+
+section .text{
+    position: relative;
+    font-size: 5em;
+    text-align: center;
+    -webkit-box-reflect: below -0.35em linear-gradient(transparent, black);
+}
+
+section .text span{
+    position: relative;
+    display: inline-block;
+    
+}

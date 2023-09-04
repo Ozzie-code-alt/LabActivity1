@@ -1,14 +1,16 @@
 
 import './Styles/background.css'
 import anime from 'animejs';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import loadingcat from '../assets/loading-cat.gif'
 function Background() {
 
+  const [hidden, setHidden] = useState(true)
+  
 // splitted text
 useEffect(() => {
   // Ensure the element with the class 'text' exists before accessing it
   const text = document.querySelector('.text');
-
   if (text && text.textContent !== null) {
     text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
 
@@ -58,16 +60,26 @@ useEffect(() => {
       easing:'easeOutExpo',
       duration:2000,
       delay:anime.stagger(100),
-
+      complete: () =>{
+        setHidden(false)
+      }
     })
+   
+
+    
+
 
   }
+
+
+
 }, []); // Empty dependency array means this effect runs once after initial render
 
   return (
     <>
     <section>
       <h2 className='text' >Justin Santos Submission</h2>
+       {hidden ? null : <img src={loadingcat} />}
     </section>
     </>
   )

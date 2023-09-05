@@ -1,9 +1,11 @@
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { InputGroup } from 'react-bootstrap'
+import { Dropdown, InputGroup, OverlayTrigger, Stack, Tooltip } from 'react-bootstrap'
 import { ChangeEvent, useState } from 'react'
 import List from './List'
+import PythonList from './PythonList'
+import Javalist from './Javalist'
 
 
 function Formm() {
@@ -15,14 +17,20 @@ function Formm() {
     const [splittedHEHE, setSplitted] = useState<string[]>([]);
 
 
+    const [dropdownString, setDropdown] = useState('')
+
     const objectAnswers: myObject ={
-      "int": "Keyword",
-      "let": "indentifier",
+      "int": "Identifier",
+      "let": "KeyWord",
       "=": "operator",
       "100": "integer",
       '(' : 'OpenParenthesis',
-      ')': 'ClosedParenthesis'
+      ')': 'ClosedParenthesis',
+      'sum': 'identifier',
+      
     }
+
+
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
         setMessage(event.target.value)
@@ -55,6 +63,7 @@ function Formm() {
         console.log(splitted)
 
         splitted.forEach((value) =>{
+
          if(objectAnswers.hasOwnProperty(value)){
           valueAdded += ' ' + value + ":" + objectAnswers[value] + ' '
          }
@@ -66,6 +75,7 @@ function Formm() {
          }
         })
         console.log(valueAdded)
+
         let heheWorks = valueAdded.split(" ")
         
         console.log(heheWorks)
@@ -80,15 +90,46 @@ function Formm() {
     }
 
 
+    const UpdateButton = (btnName:string)=>{
+        console.log(btnName)
+        setDropdown(btnName)
+    }
+
+    const renderToolTip = (HEHEHE:string)=>{
+     return <Tooltip id='tooltip'>{HEHEHE}</Tooltip>
+    }
 
 
+    const PythonTokenss = ['KeyWords', 'identifier', 'Literals', 'Delimiters', ' Operators']
+    const JavaTokenss = ['KeyWords', 'identifier', 'Literals', ' Operators', 'Separator','Comments']
   return (
     <div>
         <Form>
-            <Form.Group className='mb-3' controlId='form1' >
+
+            <Form.Group className='mb-3' controlId='form1'  >
+
+              <Stack gap={3}>
             <Form.Label>Input Text Here</Form.Label>
+            <Form.Label > { dropdownString  == 'Python' ? <PythonList pythonValue = {PythonTokenss}/> : dropdownString == 'Java' ? <Javalist javaValue = {JavaTokenss}/> : null }</Form.Label>
+            </Stack>
+
                 <InputGroup>
+              <Dropdown>
+                <Dropdown.Toggle variant='success' > 
+                  {dropdownString ? dropdownString : 'Choose a Language'}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <OverlayTrigger placement='right' overlay={renderToolTip('Python Tokens: \n Keywords \n identifier \n Literals \n Delimiters \n Operators')}>
+                  <Dropdown.Item  onClick={() => UpdateButton('Python')}>Python</Dropdown.Item>
+                  </OverlayTrigger>
+                  
+                  <OverlayTrigger placement='right' overlay={renderToolTip('Java Tokens:  \n Keywords \n identifier \n Literals \n Operators \n Separators \n Comments')}>
+                  <Dropdown.Item onClick={()=> UpdateButton('Java')}>Java</Dropdown.Item>
+                  </OverlayTrigger>
         
+                </Dropdown.Menu>
+              </Dropdown>
             <Form.Control type='text' value={message} onChange={handleChange} placeholder='Place assignment query here'/>
             <Button variant='outline-secondary' onClick={handleClick}>Check it Out</Button>
             </InputGroup>

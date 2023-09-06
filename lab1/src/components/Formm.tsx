@@ -25,10 +25,19 @@ function Formm() {
 
   const pythonTokensContainer: myObject = {
     'sum': "Identifier",
+    "x" : "identifier",
+    "y" : "Identifier",
+    "print": "Identifier",
+    "input": "Identifier",
+    "type": "Keyword",
     'let': "KeyWord",
+    "int": "KeyWord",
     "=": "operator",
-    "(": "OpenParenthesis",
-    ")": "ClosedParenthesis",
+    "(": "Delimiter",
+    ")": "Deliimiter",
+    '{': "Deliimiter",
+    '}': "Deliimiter",
+    '"' : 'Delimiter',
     '+': 'Operator',
     '-': 'Operator',
     '*':'Operator',
@@ -58,7 +67,11 @@ const javaTokensContainer: myObject= {
 "." : 'Separators',
 "=" : "Operator",
 "[" : "Separator",
-"]" : "Separator"
+"]" : "Separator",
+'+': 'Operator',
+'-': 'Operator',
+'*':'Operator',
+'/':'Operator',
 }
 
 
@@ -100,7 +113,7 @@ const javaTokensContainer: myObject= {
         } else if (value === "(" || value === ")" || value == "=") {
           valueAdded += " " + value + " ";
         } else {
-          valueAdded += value;
+          valueAdded += value + "Literal ";
         }
       });
       console.log(valueAdded);
@@ -200,9 +213,9 @@ const javaTokensContainer: myObject= {
 
 
           <Alert show={show} variant="success">
-        <Alert.Heading>My Alert</Alert.Heading>
+        <Alert.Heading>Mandatory Read me which will avoid errors because im too lazy to polish/finish this</Alert.Heading>
         <p>
-    Please dont forget to choose a Language otherwiwse it will return an error
+    Please dont forget to choose a Language otherwise it will return an error... thats it
 
         </p>
         <hr />

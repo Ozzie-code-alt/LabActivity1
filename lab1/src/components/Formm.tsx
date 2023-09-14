@@ -13,10 +13,13 @@ import PythonList from "./PythonList";
 import Javalist from "./Javalist";
 import Alert from 'react-bootstrap/Alert';
 
+
+
 function Formm() {
   interface myObject {
     [key: string]: string;
   }
+
   const [message, setMessage] = useState("");
   const [splittedHEHE, setSplitted] = useState<string[]>([]);
 
@@ -45,8 +48,8 @@ function Formm() {
   };
 
 const javaTokensContainer: myObject= {
-"out" : 'Identifier',
-"println" : 'Identifier',
+"out" : 'Keyword',
+"println" : 'Keyword',
 "main": 'Identifier',
 "args":"Identifier",
 "String" : "Identifier",
